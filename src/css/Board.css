@@ -1,0 +1,125 @@
+/* Page */
+
+.game-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f7fb;
+    padding: 30px;
+}
+
+
+/* Game Card */
+
+.game-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+
+/* Title */
+
+.game-card h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+
+/* Status */
+
+.status {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+
+/* Board */
+
+.board {
+    display: inline-block;
+}
+
+
+/* Rows */
+
+.board-row {
+    display: flex;
+}
+
+
+/* Squares */
+
+.square {
+    width: 75px;
+    height: 75px;
+
+    margin: 4px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #f1f3f8;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* Hover */
+
+.square:hover {
+    background: #e2e5ec;
+    transform: scale(1.05);
+}
+
+
+/* X */
+
+.x-square {
+    color: #2563eb;
+}
+
+
+/* O */
+
+.o-square {
+    color: #e11d48;
+}
+
+
+/* Restart Button */
+
+.reset-btn {
+    margin-top: 25px;
+
+    padding: 12px 25px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.reset-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
