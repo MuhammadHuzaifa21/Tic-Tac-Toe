@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import '../css/Board.css'
 
 function Square({ value, onSquareClick }) {
@@ -69,18 +68,6 @@ export default function Board({ xIsNext, squares, onPlay }) {
                     <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
                 </div>
             </div>
-
-            <br />
-
-            <button
-                className="reset-btn"
-                onClick={() => {
-                    setSquares(Array(9).fill(null));
-                    setXIsNext(true);
-                }}
-            >
-                Restart Game
-            </button>
 
         </div>
 
