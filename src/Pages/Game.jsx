@@ -24,6 +24,11 @@ function Game() {
         setCurrentMove(nextMove)
     }
 
+    function resetGame() {
+        setHistory([Array(9).fill(null)]);
+        setCurrentMove(0);
+    }
+
     const moves = history.map((squares, move) => {
 
         let description
@@ -48,40 +53,32 @@ function Game() {
 
     return (
         <div className="container py-5">
-
             <div className="row justify-content-center align-items-start g-4">
 
                 {/* Game Board */}
                 <div className="col-md-auto">
-
                     <Board
                         xIsNext={xIsNext}
                         squares={currentSquares}
                         onPlay={handlePlay}
+                        onReset={resetGame}
                     />
-
                 </div>
 
 
                 {/* Game History */}
                 <div className="col-md-auto">
-
                     <div className="game-info">
-
                         <h4 className="fw-bold mb-3">
                             Game History
                         </h4>
-
                         <ol className="ps-4">
                             {moves}
                         </ol>
-
                     </div>
-
                 </div>
 
             </div>
-
         </div>
     )
 }

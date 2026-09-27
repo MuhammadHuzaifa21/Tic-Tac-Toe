@@ -12,7 +12,7 @@ function Square({ value, onSquareClick }) {
     )
 }
 
-export default function Board({ xIsNext, squares, onPlay }) {
+export default function Board({ xIsNext, squares, onPlay, onReset }) {
 
     function handleClick(i) {
         if(squares[i] || calculateWinner(squares)) {
@@ -30,9 +30,13 @@ export default function Board({ xIsNext, squares, onPlay }) {
     }
 
     const winner = calculateWinner(squares);
+    const isDraw = !winner && squares.every(square => square !== null);
+
     let status;
     if (winner) {
         status = "Winner: " + winner;
+    } else if (isDraw) {
+        status = "It's a Draw!";
     } else {
         status = "Next Player: " + (xIsNext ? "X" : "O");
     }
@@ -40,12 +44,14 @@ export default function Board({ xIsNext, squares, onPlay }) {
   return (
     <>
     <div className="game-container">
-
         <div className="game-card">
-
             <h1>Tic Tac Toe</h1>
 
-            <div className="status">
+            <div className={`status ${
+                winner ? "text-succes" :
+                isDraw ? "text-warning" :
+                "text-dark" 
+            }`}>
                 {status}
             </div>
 
@@ -69,8 +75,15 @@ export default function Board({ xIsNext, squares, onPlay }) {
                 </div>
             </div>
 
+            <div className="d-flex justify-content-center mt-4">
+                <button 
+                    className="btn btn-primary px-4"
+                    onClick={onReset}
+                >
+                    New Game
+                </button>
+            </div>
         </div>
-
     </div>
     </>
   )
