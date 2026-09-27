@@ -52,7 +52,17 @@ function Game() {
     })
 
     return (
-        <div className="container py-5">
+        <div className="container py-5 text-center">
+            <h1>Tic Tac Toe</h1>
+            <div className="row justify-content-center align-items-start g-4 mb-4">
+                <div className="col-md-auto">
+                    <span class="btn badge text-bg-primary fs-5">3x3</span>
+                </div>
+                <div className="col-md-auto">
+                    <span class="btn badge text-bg-primary fs-5">4x4</span>
+                </div>
+            </div>
+
             <div className="row justify-content-center align-items-start g-4">
 
                 {/* Game Board */}
@@ -64,7 +74,6 @@ function Game() {
                         onReset={resetGame}
                     />
                 </div>
-
 
                 {/* Game History */}
                 <div className="col-md-auto">
