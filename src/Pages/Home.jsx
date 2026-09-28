@@ -23,7 +23,7 @@ function Home() {
                             </p>
 
                             <Link
-                                to="/game"
+                                to="/select-game"
                                 className="btn btn-primary btn-lg px-4"
                             >
                                 Play Game

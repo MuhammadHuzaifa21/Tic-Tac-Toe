@@ -33,6 +33,7 @@ function Game() {
 
         let description
 
+        
         if (move > 0) {
             description = "Go to move #" + move
         } else {
@@ -40,14 +41,20 @@ function Game() {
         }
 
         return (
-            <li key={move} className="mb-2">
-                <button
-                    className="btn btn-outline-primary btn-sm"
-                    onClick={() => jumpTo(move)}
-                >
-                    {description}
+            <>
+                <li key={move} className="mb-2">
+                    <button
+                        className="btn btn-outline-primary btn-sm"
+                        onClick={() => jumpTo(move)}
+                    >
+                        {description}
+                    </button>
+                </li>
+
+                <button className="btn btn-outline-secondary btn-sm">
+                    You are at move #{move + 1}
                 </button>
-            </li>
+            </>
         )
     })
 
@@ -57,9 +64,6 @@ function Game() {
             <div className="row justify-content-center align-items-start g-4 mb-4">
                 <div className="col-md-auto">
                     <span class="btn badge text-bg-primary fs-5">3x3</span>
-                </div>
-                <div className="col-md-auto">
-                    <span class="btn badge text-bg-primary fs-5">4x4</span>
                 </div>
             </div>
 

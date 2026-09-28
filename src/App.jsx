@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Pages/Home'
 import Navbar from './Components/Navbar'
 import Game from './Pages/Game'
+import GameSelection from './Pages/GameSelection'
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/game' element={<Game />} />
+          <Route path='/game/3' element={<Game />} />
+          <Route path='/select-game' element={<GameSelection />} />
         </Routes>
       </BrowserRouter>
     </>

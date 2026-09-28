@@ -79,8 +79,8 @@ The `Game` component manages state and passes the current board, turn, and event
 ## Screenshots
 
 Add screenshots of your home page and game board here once you've uploaded them to your repository.
-![Home Page](/public/home.png)
-![alt text](/public/game.png)
+![Home Page](/public/screenshots/home.png)
+![alt text](/public/screenshots/game.png)
 
 ## Future Improvements
 

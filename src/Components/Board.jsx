@@ -44,9 +44,9 @@ export default function Board({ xIsNext, squares, onPlay, onReset }) {
   return (
     <>
     <div className="game-container">
+
         {/* 3x3 */}
         <div className="game-card">
-            <h1>(3x3)</h1>
 
             <div className={`status ${
                 winner ? "text-succes" :
@@ -86,7 +86,7 @@ export default function Board({ xIsNext, squares, onPlay, onReset }) {
             </div>
         </div>
 
-        {/* 4x4 */}
+        {/* 4x4
         <div className="game-card" hidden={true}>
             <h1>Tic Tac Toe (4x4)</h1>
 
@@ -136,7 +136,7 @@ export default function Board({ xIsNext, squares, onPlay, onReset }) {
                     New Game
                 </button>
             </div>
-        </div>
+        </div> */}
     </div>
 
 
