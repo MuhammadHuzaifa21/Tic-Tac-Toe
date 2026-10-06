@@ -15,7 +15,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/game/3' element={<Game />} />
+          <Route path='/game/:size' element={<Game />} />
           <Route path='/select-game' element={<GameSelection />} />
         </Routes>
       </BrowserRouter>

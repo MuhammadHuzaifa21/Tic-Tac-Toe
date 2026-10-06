@@ -12,7 +12,7 @@ function Square({ value, onSquareClick }) {
     )
 }
 
-export default function Board({ xIsNext, squares, onPlay, onReset }) {
+export default function Board({ xIsNext, squares, onPlay, onReset, size }) {
 
     function handleClick(i) {
         if(squares[i] || calculateWinner(squares)) {
@@ -40,6 +40,11 @@ export default function Board({ xIsNext, squares, onPlay, onReset }) {
     } else {
         status = "Next Player: " + (xIsNext ? "X" : "O");
     }
+
+    const numbers = [10, 20, 30];
+    numbers.map((number) => {
+        console.log(number)
+    })
 
   return (
     <>

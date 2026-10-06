@@ -1,9 +1,12 @@
 import { useState } from "react"
 import Board from "../Components/Board"
+import { useParams } from "react-router-dom"
 
 function Game() {
+    const type = useParams();
+    const size = Number(type.size);
 
-    const [history, setHistory] = useState([Array(9).fill(null)])
+    const [history, setHistory] = useState([Array(size * size).fill(null)])
     const [currentMove, setCurrentMove] = useState(0)
 
     const xIsNext = currentMove % 2 === 0
@@ -25,7 +28,7 @@ function Game() {
     }
 
     function resetGame() {
-        setHistory([Array(9).fill(null)]);
+        setHistory([Array(size * size).fill(null)]);
         setCurrentMove(0);
     }
 
@@ -50,10 +53,6 @@ function Game() {
                         {description}
                     </button>
                 </li>
-
-                <button className="btn btn-outline-secondary btn-sm">
-                    You are at move #{move + 1}
-                </button>
             </>
         )
     })
@@ -61,9 +60,10 @@ function Game() {
     return (
         <div className="container py-5 text-center">
             <h1>Tic Tac Toe</h1>
+
             <div className="row justify-content-center align-items-start g-4 mb-4">
                 <div className="col-md-auto">
-                    <span class="btn badge text-bg-primary fs-5">3x3</span>
+                    <span className="btn badge text-bg-primary fs-5">{size} x {size}</span>
                 </div>
             </div>
 
@@ -76,6 +76,7 @@ function Game() {
                         squares={currentSquares}
                         onPlay={handlePlay}
                         onReset={resetGame}
+                        size={size}
                     />
                 </div>
 
