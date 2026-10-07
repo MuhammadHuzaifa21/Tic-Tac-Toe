@@ -14,6 +14,7 @@ function Square({ value, onSquareClick }) {
 
 export default function Board({ xIsNext, squares, onPlay, onReset, size }) {
 
+    // LOGIC
     function handleClick(i) {
         if(squares[i] || calculateWinner(squares)) {
             return;
@@ -32,6 +33,7 @@ export default function Board({ xIsNext, squares, onPlay, onReset, size }) {
     const winner = calculateWinner(squares);
     const isDraw = !winner && squares.every(square => square !== null);
 
+    // UI
     let status;
     if (winner) {
         status = "Winner: " + winner;
@@ -40,11 +42,6 @@ export default function Board({ xIsNext, squares, onPlay, onReset, size }) {
     } else {
         status = "Next Player: " + (xIsNext ? "X" : "O");
     }
-
-    const numbers = [10, 20, 30];
-    numbers.map((number) => {
-        console.log(number)
-    })
 
   return (
     <>
@@ -61,8 +58,31 @@ export default function Board({ xIsNext, squares, onPlay, onReset, size }) {
                 {status}
             </div>
 
+{/* Array(4).map((_, row) => {
+
+    Array(4).map((_, column) => {
+
+        console.log(row, column);
+
+    });
+
+}); */}
             <div className="board">
-                <div className="board-row">
+                {/* DYNAMIC ROWS BASED ON SIZE */}
+                {Array.from({ length: size }).map((_, row) => {
+                    return (                                         
+                        <div className="board-row" key={row}>
+                            {Array.from({ length: size }).map((_, column) => {
+                                const index = (row * size) + column;
+                                return (
+                                    <Square key={index} value={squares[index]} onSquareClick={() => handleClick(index)} />
+                                )
+                            })}
+                        </div>
+                    )
+                })}
+
+                {/* <div className="board-row">
                     <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
                     <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
                     <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
@@ -78,7 +98,7 @@ export default function Board({ xIsNext, squares, onPlay, onReset, size }) {
                     <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
                     <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
                     <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
-                </div>
+                </div> */}
             </div>
 
             <div className="d-flex justify-content-center mt-4">
