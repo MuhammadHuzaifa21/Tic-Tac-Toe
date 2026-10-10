@@ -91,21 +91,61 @@ export default function Board({ xIsNext, squares, onPlay, onReset, size }) {
 }
 
 function calculateWinner(squares, size) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
-    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+    const lines = [];
+
+    for (let row = 0; row < size; row++) {
+        const line = [];
+
+        for (let column = 0; column < size; column++) {
+            const index = column + (row * size);
+
+            line.push(index);
+        }
+
+        lines.push(line);
     }
-  }
-  return null;
+
+    // Vertical lines
+    for (let column = 0; column < size; column++) {
+        const line = [];
+
+        for (let row = 0; row < size; row++) {
+            const index = column + (row * size);
+            line.push(index);
+        }
+
+        lines.push(line);
+    }
+
+    // Main diagonal
+    const diagonal1 = [];
+
+    for (let i = 0; i < size; i++) {
+        diagonal1.push(i * (size + 1));
+    }
+
+    lines.push(diagonal1);
+
+    // Other diagonal
+    const diagonal2 = [];
+
+    for (let i = 0; i < size; i++) {
+        diagonal2.push((i + 1) * (size - 1));
+    }
+
+    lines.push(diagonal2);
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i];
+        const first = squares[line[0]];
+
+        if (
+            first &&
+            line.every(index => squares[index] === first)
+        ) {
+            return first;
+        }
+    }
+
+    return null;
 }
