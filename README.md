@@ -2,7 +2,7 @@
 
 A simple, responsive **Tic-Tac-Toe game** built with **React** and **Bootstrap**. Two players take turns placing X and O on a 3×3 board. The game detects wins and draws, keeps a move history, and lets players revisit earlier moves or start over.
 
-## Try it out:
+## Try it out
 **Link:** https://tic-tac-toe-seven-alpha-17.vercel.app
 
 ## Features
