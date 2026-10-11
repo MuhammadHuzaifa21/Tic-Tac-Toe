@@ -148,7 +148,7 @@ function Home() {
                             </p>
 
                             <Link
-                                to="/game"
+                                to="/select-game"
                                 className="btn btn-light btn-lg px-4"
                             >
                                 Start Game
